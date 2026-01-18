@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-primary font-pixel overflow-x-hidden;
+    background-image: 
+      radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 3px),
+      radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px),
+      radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 3px);
+    background-size: 550px 550px, 350px 350px, 250px 250px;
+    background-position: 0 0, 40px 60px, 130px 270px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display text-accent;
+  }
+}
+
+.pixel-border {
+  box-shadow: 
+    -4px 0 0 0 #012030,
+    4px 0 0 0 #012030,
+    0 -4px 0 0 #012030,
+    0 4px 0 0 #012030,
+    -4px -4px 0 0 #45C4B0, 
+    4px -4px 0 0 #45C4B0, 
+    -4px 4px 0 0 #45C4B0, 
+    4px 4px 0 0 #45C4B0;
+  margin: 4px;
+}
+
+.pixel-btn {
+  @apply px-6 py-2 bg-secondary text-background font-bold font-pixel text-xl tracking-wide transition-all relative inline-block;
+  box-shadow: 
+    inset -4px -4px 0px 0px rgba(0,0,0,0.3),
+    4px 4px 0px 0px #000;
+}
+
+.pixel-btn:active {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
+
+.pixel-btn:hover {
+  @apply bg-primary text-background;
+}
