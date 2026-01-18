@@ -29,16 +29,18 @@ const Hero = () => {
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center pt-16 relative overflow-hidden">
       {/* Background Stars - Multi-layered Pixel Space with Parallax */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Small Stars (Distant) */}
-        <motion.div style={{ x: xSmall, y: ySmall }} className="absolute inset-0">
-          {[...Array(50)].map((_, i) => (
+        <motion.div style={{ x: xSmall, y: ySmall }} className="absolute inset-0 w-full h-full">
+          {[...Array(60)].map((_, i) => (
             <motion.div
               key={`small-${i}`}
               className="absolute bg-white w-0.5 h-0.5"
+              style={{
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+              }}
               initial={{ 
-                x: Math.random() * window.innerWidth, 
-                y: Math.random() * window.innerHeight, 
                 opacity: Math.random() 
               }}
               animate={{ 
@@ -55,18 +57,20 @@ const Hero = () => {
         </motion.div>
 
         {/* Medium Stars */}
-        <motion.div style={{ x: xMedium, y: yMedium }} className="absolute inset-0">
-          {[...Array(25)].map((_, i) => (
+        <motion.div style={{ x: xMedium, y: yMedium }} className="absolute inset-0 w-full h-full">
+          {[...Array(30)].map((_, i) => (
             <motion.div
               key={`medium-${i}`}
               className="absolute bg-gray-300 w-1 h-1"
+              style={{
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+              }}
               initial={{ 
-                x: Math.random() * window.innerWidth, 
-                y: Math.random() * window.innerHeight, 
                 opacity: Math.random() * 0.5 + 0.3
               }}
               animate={{ 
-                y: [null, Math.random() * 10 - 5], // Slight drift
+                y: [0, Math.random() * 10 - 5], // Slight drift
                 opacity: [0.3, 0.8, 0.3]
               }}
               transition={{ 
@@ -80,14 +84,16 @@ const Hero = () => {
         </motion.div>
 
         {/* Large Stars (Nearby) */}
-        <motion.div style={{ x: xLarge, y: yLarge }} className="absolute inset-0">
-          {[...Array(8)].map((_, i) => (
+        <motion.div style={{ x: xLarge, y: yLarge }} className="absolute inset-0 w-full h-full">
+          {[...Array(10)].map((_, i) => (
             <motion.div
               key={`large-${i}`}
               className="absolute bg-accent w-1.5 h-1.5"
+              style={{
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+              }}
               initial={{ 
-                x: Math.random() * window.innerWidth, 
-                y: Math.random() * window.innerHeight, 
                 opacity: 0 
               }}
               animate={{ 
@@ -103,6 +109,57 @@ const Hero = () => {
             />
           ))}
         </motion.div>
+
+        {/* Shooting Stars (Falling Effect) */}
+        <div className="absolute inset-0 w-full h-full">
+          {[...Array(15)].map((_, i) => (
+            <motion.div
+              key={`shooting-${i}`}
+              className="absolute bg-gradient-to-b from-white to-transparent w-0.5"
+              style={{
+                left: `${Math.random() * 100}%`,
+                height: `${Math.random() * 20 + 10}px`, // Varying trail length
+                opacity: 0.7
+              }}
+              initial={{ y: -100, opacity: 0 }}
+              animate={{ 
+                y: ['-10vh', '110vh'],
+                opacity: [0, 1, 0]
+              }}
+              transition={{ 
+                duration: Math.random() * 2 + 1, // Fast falling
+                repeat: Infinity,
+                ease: "linear",
+                delay: Math.random() * 5, // Random start times
+                repeatDelay: Math.random() * 3
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Nebula Dust (Colored Pixels for Detail) */}
+        <div className="absolute inset-0 w-full h-full">
+          {[...Array(20)].map((_, i) => (
+            <motion.div
+              key={`dust-${i}`}
+              className={`absolute w-1 h-1 ${i % 2 === 0 ? 'bg-secondary' : 'bg-pink-500'}`}
+              style={{
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+                opacity: 0.4
+              }}
+              animate={{ 
+                opacity: [0.2, 0.6, 0.2],
+              }}
+              transition={{ 
+                duration: Math.random() * 4 + 2, 
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: Math.random() * 5
+              }}
+            />
+          ))}
+        </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center relative z-10">

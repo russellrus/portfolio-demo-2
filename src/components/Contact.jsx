@@ -12,15 +12,31 @@ const Contact = () => {
           Ready to start a new mission?
         </p>
 
-        <div className="flex flex-col md:flex-row justify-center gap-6">
-          <a href="mailto:your.email@example.com" className="pixel-btn bg-tertiary flex items-center justify-center gap-3">
-            <FaEnvelope /> SEND EMAIL
+        <div className="flex flex-row justify-center items-center gap-4">
+          <a 
+            href="mailto:your.email@example.com" 
+            className="w-full max-w-[120px] aspect-[4/3] pixel-btn bg-tertiary text-sm !flex flex-col items-center justify-center gap-2 transition-all group"
+          >
+            <FaEnvelope className="text-2xl group-hover:scale-110 transition-transform" /> 
+            <span className="leading-none text-center">EMAIL</span>
           </a>
-          <a href="https://github.com" target="_blank" rel="noreferrer" className="pixel-btn bg-gray-700 flex items-center justify-center gap-3">
-            <FaGithub /> GITHUB
+          <a 
+            href="https://github.com" 
+            target="_blank" 
+            rel="noreferrer" 
+            className="w-full max-w-[120px] aspect-[4/3] pixel-btn bg-gray-700 text-sm !flex flex-col items-center justify-center gap-2 transition-all group"
+          >
+            <FaGithub className="text-3xl group-hover:scale-110 transition-transform" /> 
+            <span className="leading-none text-center">GITHUB</span>
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="pixel-btn bg-blue-700 flex items-center justify-center gap-3">
-            <FaLinkedin /> LINKEDIN
+          <a 
+            href="https://linkedin.com" 
+            target="_blank" 
+            rel="noreferrer" 
+            className="w-full max-w-[120px] aspect-[4/3] pixel-btn bg-blue-700 text-sm !flex flex-col items-center justify-center gap-2 transition-all group"
+          >
+            <FaLinkedin className="text-3xl group-hover:scale-110 transition-transform" /> 
+            <span className="leading-none text-center">LINKEDIN</span>
           </a>
         </div>
       </div>
